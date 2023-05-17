@@ -1,20 +1,20 @@
-SELECT 
+select
   c.id AS customer_id,
   c.name,
   c.email,
   MIN(o.created_at) AS first_order_at,
   COUNT(DISTINCT o.id) AS number_of_orders
-FROM 
+from
   `analytics-engineers-club.coffee_shop.orders` o
-LEFT JOIN 
+left join
   `analytics-engineers-club.coffee_shop.customers` c
-ON 
+on
   o.customer_id = c.id
-GROUP BY 
+group by
   c.id,
   c.name,
   c.email
-ORDER BY 
+order by
   first_order_at
-LIMIT 
+limit
   5;
