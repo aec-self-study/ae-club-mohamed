@@ -1,9 +1,9 @@
 select
-  c.id AS customer_id,
+  c.id as customer_id,
   c.name,
   c.email,
-  MIN(o.created_at) AS first_order_at,
-  COUNT(DISTINCT o.id) AS number_of_orders
+  MIN(o.created_at) as first_order_at,
+  COUNT(DISTINCT o.id) as number_of_orders
 from
   `analytics-engineers-club.coffee_shop.orders` o
 left join
